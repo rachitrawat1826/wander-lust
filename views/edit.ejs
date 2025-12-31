@@ -1,0 +1,47 @@
+<% layout("/boilerplate") %>
+    <div class="row mt-3">
+        <div class="col-8 offset-2">
+            <form method="post" action="/listings/<%= listing._id %>?_method=put" class="container mt-4 needs-validation" novalidate>
+                <h3>Edit Listing</h3>
+
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" id="title" name="listing[title]" value="<%= listing.title %>" class="form-control" required>
+                    <div class="valid-feedback"> good!</div>
+                    <div class="invalid-feedback"> pleas enter title</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea id="description" name="listing[description]" required class="form-control"><%= listing.description %></textarea>
+
+                    <div class="valid-feedback">good!</div>
+                    <div class="invalid-feedback">please enter description</div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Price (₹)</label>
+                    <input type="number" name="listing[price]" class="form-control" value="<%= listing.price %>" min="0" required>
+                </div>
+
+
+
+                <div class="mb-3">
+                    <label for="imageUrl" class="form-label">Image Link</label>
+                    <input type="text" id="imageUrl" name="listing[image][url]" value="<%= listing.image ? listing.image.url : '' %>" class="form-control" required>
+                </div>
+
+
+        </div>
+
+        <div class="mb-3">
+            <label for="country" class="form-label">Country</label>
+            <input type="text" id="country" name="listing[country]" value="<%= listing.country %>" class="form-control" required>
+            <div class="valid-feedback"> good!</div>
+            <div class="invalid-feedback"> pleas enter country</div>
+        </div>
+
+        <button type="submit" class="btn btn-dark edit-btn mt-3">Update</button>
+        </form>
+    </div>
+    </div>
+    <script src="/js/script.js"></script>

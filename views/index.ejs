@@ -1,0 +1,36 @@
+<% layout("boilerplate") %>
+
+    <% if (success && success.length) { %>
+        <div class="alert alert-success">
+            <%= success[0] %>
+        </div>
+        <% } %>
+
+            <% if (error && error.length) { %>
+                <div class="alert alert-danger">
+                    <%= error[0] %>
+                </div>
+                <% } %>
+
+                    <h1>All Listings</h1>
+
+                    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+                        <% for (let listing of listings) { %>
+                            <a href="/listings/<%= listing._id %>" class="listing-link text-decoration-none">
+                                <div class="card col listing-card shadow-sm mb-3">
+                                    <img src="<%= listing.image?.url || '/images/default.jpg' %>" class="card-img-top" alt="listing_image" style="height:20rem;object-fit:cover;">
+                                    <div class="card-body">
+                                        <p class="text-muted small">
+                                            <%= listing.country %>
+
+                                        </p>
+                                        <p class="fw-semibold text-success">
+                                            ₹
+                                            <%= listing.price %>
+                                        </p>
+
+                                    </div>
+                                </div>
+                            </a>
+                            <% } %>
+                    </div>

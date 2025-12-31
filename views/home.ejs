@@ -1,0 +1,59 @@
+<% layout("boilerplate") %>
+
+    <div class="container mt-5">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <h1 class="display-5 fw-bold">
+                    Discover the world with <span class="text-primary">WanderLust</span>
+                </h1>
+                <p class="lead mt-3">
+                    Explore amazing places, browse travel listings, and share your journeys.
+                </p>
+            </div>
+
+            <div class="col-md-6 d-flex justify-content-center">
+                <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80" class="home-img" alt="travel image">
+            </div>
+
+        </div>
+    </div>
+
+    <% if (!currentUser) { %>
+        <section class="services-section py-5 mt-5">
+            <div class="container">
+                <h2 class="text-center fw-bold mb-5">What WanderLust Offers</h2>
+
+                <div class="row text-center g-4">
+                    <div class="col-md-4">
+                        <div class="service-card p-4 shadow-sm rounded">
+                            <i class="fa-solid fa-earth-asia fa-2x mb-3 text-danger"></i>
+                            <h5>Discover Places</h5>
+                            <p class="text-muted">
+                                Explore destinations shared by travelers worldwide.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="service-card p-4 shadow-sm rounded">
+                            <i class="fa-solid fa-pen-to-square fa-2x mb-3 text-success"></i>
+                            <h5>Share Experiences</h5>
+                            <p class="text-muted">
+                                Post your journeys and inspire others.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="service-card p-4 shadow-sm rounded">
+                            <i class="fa-solid fa-lock fa-2x mb-3 text-primary"></i>
+                            <h5>Secure Accounts</h5>
+                            <p class="text-muted">
+                                Your data is protected with authentication.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <% } %>
