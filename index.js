@@ -39,14 +39,27 @@ const sessionOption = {
 
 
 // connect to database
-main().then(() => {
-    console.log("connect to db")
-}).catch((err) => {
-    console.log(err)
-})
+// main().then(() => {
+//     console.log("connect to db")
+// }).catch((err) => {
+//     console.log(err)
+// })
+
+// async function main() {
+//     await mongoose.connect("mongodb://127.0.0.1:27017/wander");
+// }
+const dbUrl = process.env.ATLASDB;
+
+main()
+    .then(() => {
+        console.log("Connected to MongoDB Atlas ✅");
+    })
+    .catch((err) => {
+        console.log("MongoDB connection error ❌", err);
+    });
 
 async function main() {
-    await mongoose.connect("mongodb://127.0.0.1:27017/wander");
+    await mongoose.connect(dbUrl);
 }
 
 //  connect to database end
